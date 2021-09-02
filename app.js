@@ -28,7 +28,7 @@ document.getElementById('search-btn').addEventListener('click', function(){
         {
             showSearchResult(data.docs)
         const searshQuantity=document.getElementById('search-quantity');
-        searshQuantity.innerHTML=`result found ${data.docs.length}`
+        searshQuantity.innerHTML=`result found ${data.numFound}`
         
         if (data.docs.length===0) {
             return searshQuantity.innerHTML=`result found ${data.docs.length}. plz write a  valid book name `

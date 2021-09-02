@@ -1,11 +1,15 @@
 document.getElementById('search-btn').addEventListener('click', function(){
     const searchField= document.getElementById('input-field');
     const searchText=searchField.value;
+
+
     const searshQuantity=document.getElementById('search-quantity');
     const searchResult=document.getElementById('search-result');
-    const error=document.getElementById('error')
+
+     /*---------------
+      APILinK 
+     ----------------*/
     const url = `https://openlibrary.org/search.json?q=${searchText}`
-   
 
     if (searchText=== "") {
         searchResult.textContent=``;
@@ -13,6 +17,11 @@ document.getElementById('search-btn').addEventListener('click', function(){
     }
     searchField.value="";
     searchResult.textContent=``;
+
+    /*---------------
+      fetch 
+     ----------------*/
+
     fetch(url)
     .then(res => res.json())
     .then(data=>
@@ -28,6 +37,12 @@ document.getElementById('search-btn').addEventListener('click', function(){
         
         })
 })
+
+
+/*---------------
+      showSearchResult 
+     ----------------*/
+
 const showSearchResult=book=>{
     book.forEach(book => {
        
@@ -52,6 +67,3 @@ const showSearchResult=book=>{
        
     });
 }
-
-
-
